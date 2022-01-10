@@ -4,6 +4,7 @@ namespace Modules\Task\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Task\Entities\Task;
 
 class TaskDatabaseSeeder extends Seeder
 {
@@ -16,6 +17,6 @@ class TaskDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        Task::factory()->count(10)->create();
     }
 }
