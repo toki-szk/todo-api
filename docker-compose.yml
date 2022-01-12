@@ -45,6 +45,22 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql
 
+  db-test:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    container_name: todo_db_test
+    ports:
+      - ${DB_PORT_TEST}:3306
+    environment:
+      MYSQL_DATABASE: ${DB_NAME_TEST}
+      MYSQL_USER: ${DB_USER_TEST}
+      MYSQL_PASSWORD: ${DB_PASSWORD_TEST}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD_TEST}
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - mysql-volume:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5
     container_name: phpmyadmin
