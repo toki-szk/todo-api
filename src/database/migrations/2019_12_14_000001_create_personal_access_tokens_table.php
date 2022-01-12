@@ -1,3 +1,4 @@
+mysql -u root -proot
 <?php
 
 use Illuminate\Database\Migrations\Migration;

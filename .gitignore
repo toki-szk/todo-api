@@ -5,6 +5,7 @@ src/storage/*.key
 src/vendor
 .env
 */.env
+*/.env.testing
 */.env.backup
 */.phpunit.result.cache
 */docker-compose.override.yml
@@ -16,3 +17,6 @@ src/.idea
 src/.vscode
 src/_ide_helper_models.php
 src/.env.testing
+docker/db
+docker/db-test
+.env.testing
