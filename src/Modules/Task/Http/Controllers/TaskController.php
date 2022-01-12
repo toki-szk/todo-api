@@ -5,25 +5,16 @@ namespace Modules\Task\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
+use Modules\Task\Entities\Task;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     * @return Renderable
+     * Task一覧
+     * @return Task[]
      */
     public function index()
     {
-        return view('task::index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('task::create');
+        return Task::all();
     }
 
     /**
@@ -44,16 +35,6 @@ class TaskController extends Controller
     public function show($id)
     {
         return view('task::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('task::edit');
     }
 
     /**
