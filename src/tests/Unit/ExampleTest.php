@@ -2,10 +2,13 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -13,6 +16,7 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
+        
         $this->assertTrue(true);
     }
 }

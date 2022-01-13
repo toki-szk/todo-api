@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql_testing'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,18 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'mysql_testing' => [
+            'driver' => 'mysql',
+            'host' => env('DB_TESTING_HOST', 'forge'),
+            'port' => env('DB_TESTING_PORT', '3306'),
+            'database' => 'todo_db_test',
+            'username' => env('DB_TESTING_USERNAME', 'forge'),
+            'password' => env('DB_TESTING_PASSWORD', ''),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
         ],
 
         'pgsql' => [
