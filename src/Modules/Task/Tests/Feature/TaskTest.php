@@ -18,8 +18,11 @@ class TaskTest extends TestCase
 
     public function 一覧を取得()
     {
-        $tasks = Task::factory()->count(1)->create();
-        dd($tasks);
-        $this->assertTrue(true);
+        $tasks = Task::factory()->count(10)->create();
+        $response = $this->getJson('api/tasks');
+
+        $response
+            ->assertOk()
+            ->assertJsonCount($tasks->count());
     }
 }
