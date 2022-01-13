@@ -32,6 +32,10 @@ class Task extends Model
         'title', 'is_done'
     ];
 
+    protected $casts = [
+        'is_done' => 'bool'
+    ];
+
     protected static function newFactory()
     {
         return \Modules\Task\Database\factories\TaskFactory::new();
