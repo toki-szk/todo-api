@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Modules\Task\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +16,7 @@ use Modules\Task\Http\Controllers\TaskController;
 */
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::apiResource('tasks', TaskController::class);
-    Route::patch('tasks/update-done/{task}', [TaskController::class, 'updateDoneTask']);
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 });

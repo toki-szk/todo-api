@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Task::all();
+        return Task::orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -62,6 +62,21 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         return $task->delete()
+            ? response()->json($task)
+            : response()->json([], 500);
+    }
+
+    /**
+     * is_doneの更新
+     * @param Task $task
+     * @param Request $request
+     * @return Illuminate\Http\JsonResponse
+     */
+    public function updateDoneTask(Task $task, Request $request)
+    {
+        $task->is_done = $request->is_done;
+
+        return $task->update()
             ? response()->json($task)
             : response()->json([], 500);
     }

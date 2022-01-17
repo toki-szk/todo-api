@@ -1,5 +1,5 @@
 <?php
-use Modules\Task\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +11,6 @@ use Modules\Task\Http\Controllers\TaskController;
 |
 */
 
-Route::prefix('task')->group(function() {
-    Route::get('/', [TaskController::class, 'index']);
+Route::prefix('user')->group(function() {
+    Route::get('/', 'UserController@index');
 });

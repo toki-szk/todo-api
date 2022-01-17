@@ -4,7 +4,7 @@ namespace Modules\Task\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Modules\Task\Database\factories\TaskFactory;
 /**
  * Modules\Task\Entities\Task
  *
@@ -38,6 +38,6 @@ class Task extends Model
 
     protected static function newFactory()
     {
-        return \Modules\Task\Database\factories\TaskFactory::new();
+        return TaskFactory::new();
     }
 }

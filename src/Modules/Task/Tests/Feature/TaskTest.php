@@ -3,14 +3,20 @@
 namespace Modules\Task\Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Task\Entities\Task;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-
+use Modules\User\Entities\User;
 class TaskTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $user = User::factory()->create();
+        $this->actingAs($user);
+    }
 
     /**
      * @test
